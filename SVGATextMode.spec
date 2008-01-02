@@ -24,6 +24,7 @@ Patch7:		%{name}-1.10-use-2.4-headers.patch.bz2
 Patch8:		SVGATextMode-1.10-fix-build.patch.bz2
 Requires:	kbd
 BuildRequires:	bison flex X11-devel
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86}
 
 %description
