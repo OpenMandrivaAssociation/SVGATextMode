@@ -22,6 +22,7 @@ Patch5:		%{name}-missing-header-fix.patch.bz2
 Patch6:		%{name}-1.10-gcc-3.3.patch.bz2
 Patch7:		%{name}-1.10-use-2.4-headers.patch.bz2
 Patch8:		SVGATextMode-1.10-fix-build.patch.bz2
+Patch9:		SVGATextMode-1.10-kheaders-build-fix.patch
 Requires:	kbd
 BuildRequires:	bison flex X11-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -50,6 +51,7 @@ mode size, your results will depend on your VGA card.
 %patch6 -p1 -b .gcc3.3
 %patch7 -p1 -b .kernel2.4
 %patch8 -p1 -b .sys_types.h
+%patch9 -p1 -b .kheaders-build-fix
 
 %build
 %make dep
