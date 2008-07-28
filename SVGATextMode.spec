@@ -1,6 +1,6 @@
 %define	name	SVGATextMode
 %define	version	1.10
-%define	release	%mkrel 14
+%define	release	%mkrel 13
 
 Summary:	A utility for improving the appearance of text consoles
 Name:		%{name}
@@ -11,17 +11,17 @@ Group:		Terminals
 Source0:	ftp://metalab.unc.edu/pub/Linux/utils/console/%{name}-%{version}-src.tar.bz2
 Source1:	%{name}-kernel2.4-headers.tar.bz2
 #(deush) regenerate patch0
-Patch0:		%{name}-1.9-make.patch.bz2
+Patch0:		%{name}-1.9-make.patch
 #(deush) add some fonts 
-Patch1:		%{name}-1.9-src-mdk.patch.bz2
+Patch1:		%{name}-1.9-src-mdk.patch
 #(deush) kernel-headers --> add include file where missed ...
 #Patch2:	%{name}-1.10-include.patch.bz2
-Patch3:		%{name}-1.9-set80.patch.bz2
-Patch4:		%{name}-1.9-src-manbz2.patch.bz2
-Patch5:		%{name}-missing-header-fix.patch.bz2
-Patch6:		%{name}-1.10-gcc-3.3.patch.bz2
-Patch7:		%{name}-1.10-use-2.4-headers.patch.bz2
-Patch8:		SVGATextMode-1.10-fix-build.patch.bz2
+Patch3:		%{name}-1.9-set80.patch
+Patch4:		%{name}-1.9-src-manbz2.patch
+Patch5:		%{name}-missing-header-fix.patch
+Patch6:		%{name}-1.10-gcc-3.3.patch
+Patch7:		%{name}-1.10-use-2.4-headers.patch
+Patch8:		SVGATextMode-1.10-fix-build.patch
 Patch9:		SVGATextMode-1.10-kheaders-build-fix.patch
 Requires:	kbd
 BuildRequires:	bison flex X11-devel
