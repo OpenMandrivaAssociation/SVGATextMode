@@ -1,6 +1,6 @@
 %define	name	SVGATextMode
 %define	version	1.10
-%define	release	%mkrel 13
+%define	release	%mkrel 14
 
 Summary:	A utility for improving the appearance of text consoles
 Name:		%{name}
