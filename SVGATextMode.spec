@@ -23,8 +23,9 @@ Patch6:		%{name}-1.10-gcc-3.3.patch
 Patch7:		%{name}-1.10-use-2.4-headers.patch
 Patch8:		SVGATextMode-1.10-fix-build.patch
 Patch9:		SVGATextMode-1.10-kheaders-build-fix.patch
+Patch10:	SVGATextMode-1.10-fix-str-fmt.patch
 Requires:	kbd
-BuildRequires:	bison flex X11-devel
+BuildRequires:	bison flex
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 ExclusiveArch:	%{ix86}
 
@@ -52,10 +53,11 @@ mode size, your results will depend on your VGA card.
 %patch7 -p1 -b .kernel2.4
 %patch8 -p1 -b .sys_types.h
 %patch9 -p1 -b .kheaders-build-fix
+%patch10 -p0 -b .str
 
 %build
 %make dep
-%make all CFLAGS_DEFAULT="$RPM_OPT_FLAGS"
+%make all CFLAGS_DEFAULT="%optflags"
 # CFLAGS="$RPM_OPT_FLAGS -IXFREE/include"
 
 %install
