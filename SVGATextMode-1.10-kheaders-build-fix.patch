@@ -1,0 +1,87 @@
+diff -p -up SVGATextMode-1.10/fs.h.orig SVGATextMode-1.10/fs.h
+--- SVGATextMode-1.10/fs.h.orig	2008-07-28 18:01:38.000000000 -0300
++++ SVGATextMode-1.10/fs.h	2008-07-28 18:04:43.000000000 -0300
+@@ -21,8 +21,8 @@
+ #include "linux/cache.h"
+ #include "linux/stddef.h"
+ 
+-#include <asm/atomic.h>
+-#include <asm/bitops.h>
++//#include <asm/atomic.h>
++//#include <asm/bitops.h>
+ 
+ struct poll_table_struct;
+ 
+diff -p -up SVGATextMode-1.10/linux/cache.h.orig SVGATextMode-1.10/linux/cache.h
+--- SVGATextMode-1.10/linux/cache.h.orig	2008-07-28 18:04:14.000000000 -0300
++++ SVGATextMode-1.10/linux/cache.h	2008-07-28 18:04:26.000000000 -0300
+@@ -1,8 +1,8 @@
+ #ifndef __LINUX_CACHE_H
+ #define __LINUX_CACHE_H
+ 
+-#include <linux/config.h>
+-#include <asm/cache.h>
++//#include <linux/config.h>
++//#include <asm/cache.h>
+ 
+ #ifndef L1_CACHE_ALIGN
+ #define L1_CACHE_ALIGN(x) (((x)+(L1_CACHE_BYTES-1))&~(L1_CACHE_BYTES-1))
+diff -p -up SVGATextMode-1.10/linux/config.h.orig SVGATextMode-1.10/linux/config.h
+--- SVGATextMode-1.10/linux/config.h.orig	2008-07-28 18:02:31.000000000 -0300
++++ SVGATextMode-1.10/linux/config.h	2008-07-28 18:02:38.000000000 -0300
+@@ -1,6 +1,6 @@
+ #ifndef _LINUX_CONFIG_H
+ #define _LINUX_CONFIG_H
+ 
+-#include <linux/autoconf.h>
++//#include <linux/autoconf.h>
+ 
+ #endif
+diff -p -up SVGATextMode-1.10/linux/linkage.h.orig SVGATextMode-1.10/linux/linkage.h
+--- SVGATextMode-1.10/linux/linkage.h.orig	2008-07-28 18:02:51.000000000 -0300
++++ SVGATextMode-1.10/linux/linkage.h	2008-07-28 18:03:00.000000000 -0300
+@@ -1,7 +1,7 @@
+ #ifndef _LINUX_LINKAGE_H
+ #define _LINUX_LINKAGE_H
+ 
+-#include <linux/config.h>
++//#include <linux/config.h>
+ 
+ #ifdef __cplusplus
+ #define CPP_ASMLINKAGE extern "C"
+diff -p -up SVGATextMode-1.10/linux/net.h.orig SVGATextMode-1.10/linux/net.h
+--- SVGATextMode-1.10/linux/net.h.orig	2008-07-28 18:03:15.000000000 -0300
++++ SVGATextMode-1.10/linux/net.h	2008-07-28 18:03:27.000000000 -0300
+@@ -18,7 +18,7 @@
+ #ifndef _LINUX_NET_H
+ #define _LINUX_NET_H
+ 
+-#include <linux/config.h>
++//#include <linux/config.h>
+ #include <linux/socket.h>
+ #include <linux/wait.h>
+ 
+diff -p -up SVGATextMode-1.10/ttyresize.c.orig SVGATextMode-1.10/ttyresize.c
+--- SVGATextMode-1.10/ttyresize.c.orig	2008-07-28 17:57:52.000000000 -0300
++++ SVGATextMode-1.10/ttyresize.c	2008-07-28 17:58:14.000000000 -0300
+@@ -42,7 +42,7 @@
+ #include <unistd.h>
+ #include <stdlib.h>
+ #include <string.h>
+-#include <asm/page.h>	/* for PAGE_SIZE */
++#include <sys/user.h>	/* for PAGE_SIZE */
+ #include <linux/vt.h>   /* for VT_RESIZE */
+ #include <sys/ioctl.h>
+ #include <sys/wait.h>
+diff -p -up SVGATextMode-1.10/vga_prg.h.orig SVGATextMode-1.10/vga_prg.h
+--- SVGATextMode-1.10/vga_prg.h.orig	2008-07-28 17:53:46.000000000 -0300
++++ SVGATextMode-1.10/vga_prg.h	2008-07-28 17:55:02.000000000 -0300
+@@ -41,7 +41,7 @@ extern bool vga_open;
+ #  define iopl(x) (0)
+ #else
+ extern int iopl(int);
+-#  include <asm/io.h>
++#  include "asm/io.h"
+ #  ifdef __ALPHA_IO_H
+ #    define _ASM_IO_H
+ #  endif

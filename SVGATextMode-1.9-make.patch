@@ -1,0 +1,82 @@
+--- SVGATextMode-1.10/Makefile.deush	Sat Nov 25 17:41:24 2000
++++ SVGATextMode-1.10/Makefile	Sat Nov 25 17:46:49 2000
+@@ -24,14 +24,14 @@
+ LDFLAGS_DEFAULT =
+ 
+ CFLAGS_alpha =
+-CFLAGS_i386  = -Wpointer-arith -Wnested-externs 
+-CFLAGS_i486  =
+-CFLAGS_i586  = -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2
+-CFLAGS_i686  = -fno-strength-reduce -malign-loops=2 -malign-jumps=2 -malign-functions=2
++CFLAGS_i386  = -Wall $(RPM_OPT_FLAGS) $(CDEBUGFLAGS) -IXFREE/include 
++CFLAGS_i486  = $(CFLAGS_i386)
++CFLAGS_i586  = $(CFLAGS_i486)
++CFLAGS_i686  = $(CFLAGS_i586)
+ 
+ LDFLAGS_alpha =
+ LDFLAGS_i386  =
+-LDFLAGS_i486  =
++LDFLAGS_i486  = $(LDFLAGS_i386)
+ LDFLAGS_i586  =
+ LDFLAGS_i686  =
+ 
+@@ -53,14 +53,14 @@
+ export CFLAGS
+ 
+ # installation path for SVGATextMode
+-INSTBINDIR = /usr/sbin
++INSTBINDIR = $(DESTDIR)/usr/sbin
+ 
+ # installation path for TextConfig. This is also the path that will be
+ # compiled into SVGATextMode.
+-INSTCONFDIR = /etc
++INSTCONFDIR = $(DESTDIR)/etc
+ 
+ # installation path for the manual files
+-INSTMANDIR = /usr/man
++INSTMANDIR = $(DESTDIR)/usr/man
+ 
+ # misc configuration flags.
+ #
+@@ -94,7 +94,7 @@
+ #                          to use 64kb of VGA memory instead of 32k.
+ #
+ 
+-CONF_FLAGS = 
++CONF_FLAGS = -DRUN_SECURE
+ 
+ ############  END  OF  USER  CONFIGURATION  #################################
+ 
+@@ -119,8 +119,8 @@
+ XFREELIBS = XFREE/libxf86_hw.a
+ XFREELINK = -LXFREE -lxf86_hw
+ 
+-USERPROGS = SVGATextMode stm clockprobe grabmode
+-HACKPROGS = setVGAreg getVGAreg setpalette getpalette set80 ClockProg 
++USERPROGS = SVGATextMode grabmode
++HACKPROGS = setVGAreg setpalette set80 ClockProg 
+ 
+ BINARIES = $(USERPROGS) $(HACKPROGS)
+ 
+@@ -266,17 +266,12 @@
+ # install/clean targets
+ #
+ 
+-bininstall:
+-	@if [ ! -x SVGATextMode ]; then \
+-		make SVGATextMode; \
+-	fi
+-	@if [ ! -x grabmode ]; then \
+-		make grabmode; \
+-	fi
+-	install -m 755 SVGATextMode $(INSTBINDIR)
++bininstall: all
++	install -s -m 755 $(USERPROGS) $(HACKPROGS) $(INSTBINDIR)
+ 	ln -sf SVGATextMode $(INSTBINDIR)/stm
+-	install -m 755 grabmode $(INSTBINDIR)
+ 	ln -sf grabmode $(INSTBINDIR)/clockprobe
++	ln -sf setVGAreg $(INSTBINDIR)/getVGAreg
++	ln -sf setpalette $(INSTBINDIR)/getpalette
+ 	
+ man-install maninstall:
+ 	rm -f $(INSTMANDIR)/man8/SVGATextMode.8.gz

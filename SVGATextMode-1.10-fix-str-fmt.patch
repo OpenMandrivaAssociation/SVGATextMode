@@ -1,0 +1,11 @@
+--- grabmode.c.str	2011-01-03 08:22:24.000000000 +0000
++++ grabmode.c	2011-01-03 08:22:45.000000000 +0000
+@@ -272,7 +272,7 @@
+        if ((1<<i)==MSG_CLOCK_MEASUREMENTS)
+          fprintf(stderr, mode_messages[i].msg_txt,m.valid_measurements);
+        else
+-         fprintf(stderr, mode_messages[i].msg_txt);
++         fprintf(stderr, "%s", mode_messages[i].msg_txt);
+        fputc('\n', stderr);
+      }
+    }

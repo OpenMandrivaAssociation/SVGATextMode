@@ -1,0 +1,11 @@
+--- SVGATextMode-1.10/XFREE/xfree_compat.h~	2000-07-20 15:07:11.000000000 +0200
++++ SVGATextMode-1.10/XFREE/xfree_compat.h	2006-04-28 15:50:36.000000000 +0200
+@@ -14,7 +14,7 @@ extern int debug_level;
+ 
+ #include <stdio.h>
+ #include <unistd.h>
+-
++#include <sys/types.h>
+ #ifndef _XF86_HWLIB_H
+ 
+ /* ATTDac.c */

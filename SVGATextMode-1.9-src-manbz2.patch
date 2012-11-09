@@ -1,0 +1,24 @@
+--- SVGATextMode-1.9-src/Makefile.warly	Thu Dec 30 20:28:45 1999
++++ SVGATextMode-1.9-src/Makefile	Thu Dec 30 20:29:39 1999
+@@ -272,6 +272,21 @@
+ 	install -m 644 doc/grabmode.man $(INSTMANDIR)/man8/grabmode.8
+ 	ln -sf grabmode.8 $(INSTMANDIR)/man8/clockprobe.8
+ 	ln -sf SVGATextMode.8 $(INSTMANDIR)/man8/stm.8
++
++manbz2-install :
++	rm -f $(INSTMANDIR)/man8/SVGATextMode.8.gz
++	rm -f $(INSTMANDIR)/man8/stm.8.gz
++	rm -f $(INSTMANDIR)/man5/TextConfig.5.gz
++	rm -f $(INSTMANDIR)/man8/grabmode.8.gz
++	rm -f $(INSTMANDIR)/man8/clockprobe.8.gz
++	install -m 644 doc/SVGATextMode.man $(INSTMANDIR)/man8/SVGATextMode.8
++	install -m 644 doc/TextConfig.man $(INSTMANDIR)/man5/TextConfig.5
++	install -m 644 doc/grabmode.man $(INSTMANDIR)/man8/grabmode.8
++	bzip2 -f9 $(INSTMANDIR)/man8/SVGATextMode.8
++	bzip2 -f9 $(INSTMANDIR)/man5/TextConfig.5
++	bzip2 -f9 $(INSTMANDIR)/man8/grabmode.8
++	ln -sf grabmode.8.bz2 $(INSTMANDIR)/man8/clockprobe.8.bz2
++	ln -sf SVGATextMode.8.bz2 $(INSTMANDIR)/man8/stm.8.bz2
+ 	
+ mangz-install mangzinstall compressedmaninstall: man-install
+ 	gzip -v -f -9 $(INSTMANDIR)/man8/SVGATextMode.8

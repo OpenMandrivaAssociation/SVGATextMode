@@ -1,0 +1,32 @@
+diff -urN SVGATextMode-1.9-old/TextConfig SVGATextMode-1.9-src/TextConfig
+--- SVGATextMode-1.9-old/TextConfig	Tue Oct 13 21:09:15 1998
++++ SVGATextMode-1.9-src/TextConfig	Sat Jul 17 11:42:16 1999
+@@ -450,6 +450,10 @@
+ Option "LoadFont"
+ FontProg "/usr/bin/setfont"
+ #FontPath "/usr/lib/kbd/consolefonts"
++FontSelect "lat1-16.psf"   8x16 9x16 8x15 9x15
++FontSelect "lat1-14.psf"   8x14 9x14 8x13 9x13
++FontSelect "lat1-12.psf" 8x12 9x12 8x11 9x11
++FontSelect "lat1-08.psf"    8x8  9x8  8x7  9x7
+ FontSelect "Cyr_a8x16"   8x16 9x16 8x15 9x15 
+ FontSelect "Cyr_a8x14"   8x14 9x14 8x13 9x13
+ FontSelect "8x12alt.psf" 8x12 9x12 8x11 9x11
+@@ -777,7 +781,7 @@
+ # Especially the 80x... modes are a real enhancement over the original one.
+ #
+ "S80x25"           55   640  704  800  872    400  405  410  417 font  9x16 DoubleScan
+-"S80x12"           55   640  704  800  872    400  405  410  417 font  9x32 DoubleScan
++#"S80x12"           55   640  704  800  872    400  405  410  417 font  9x32 DoubleScan
+ "S80x50"           55   640  704  800  872    800  810  820  835 font  9x16
+ "S80x66"           55   640  704  800  872    800  810  820  835 font  9x12
+ "S80x100"          55   640  704  800  872    800  810  820  835 font  9x8
+@@ -790,7 +794,7 @@
+ #
+ # This one is completely nuts. You'll know why once you see this on a 20" screen...
+ #
+-"MEGA20x7"  15.12  160 200 224 240   240  241  242  256 font 9x32 doublescan
++#"MEGA20x7"  15.12  160 200 224 240   240  241  242  256 font 9x32 doublescan
+  
+ ###########################################################################
+ # For as far as I know, of all the "cheap" cards, only ET4000 can handle clocks

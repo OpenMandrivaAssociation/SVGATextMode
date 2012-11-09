@@ -1,0 +1,37 @@
+--- SVGATextMode-1.10/fs.h~	2000-06-21 16:58:34.000000000 +0200
++++ SVGATextMode-1.10/fs.h	2004-04-19 04:47:56.681423334 +0200
+@@ -6,20 +6,20 @@
+  * structures etc.
+  */
+ 
+-#include <linux/config.h>
+-#include <linux/linkage.h>
+-#include <linux/limits.h>
+-#include <linux/wait.h>
+-#include <linux/types.h>
+-#include <linux/vfs.h>
+-#include <linux/net.h>
+-#include <linux/kdev_t.h>
+-#include <linux/ioctl.h>
+-#include <linux/list.h>
+-#include <linux/dcache.h>
+-#include <linux/stat.h>
+-#include <linux/cache.h>
+-#include <linux/stddef.h>
++#include "linux/config.h"
++#include "linux/linkage.h"
++#include "linux/limits.h"
++#include "linux/wait.h"
++#include "linux/types.h"
++#include "linux/vfs.h"
++#include "linux/net.h"
++#include "linux/kdev_t.h"
++#include "linux/ioctl.h"
++#include "linux/list.h"
++#include "linux/dcache.h"
++#include "linux/stat.h"
++#include "linux/cache.h"
++#include "linux/stddef.h"
+ 
+ #include <asm/atomic.h>
+ #include <asm/bitops.h>

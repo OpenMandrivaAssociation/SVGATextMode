@@ -1,0 +1,13 @@
+--- SVGATextMode-1.10/probeclocks.c.orig	1998-09-05 16:16:32.000000000 +0200
++++ SVGATextMode-1.10/probeclocks.c	2003-07-15 17:01:15.000000000 +0200
+@@ -58,8 +58,8 @@ void usage()
+      Options: -n  Don't program VGA hardware (rather useless)\n\
+               -d  print debugging information\n\
+               -h  print usage information\n\
+-              -f  fast mode: probe only one clock `precisely', and the rest faster
+-                  and less accurate (XFree86 method for all but the first probe)
++              -f  fast mode: probe only one clock `precisely', and the rest faster\n\
++                  and less accurate (XFree86 method for all but the first probe)\n\
+               -t <ConfigFile>  Use alternative config file instead of the default\n\
+                  (= %s if that exists, or %s otherwise)\n\n",
+      VERSION, CommandName, CLOCK_CONF_FILE, CONFIGFILE));
